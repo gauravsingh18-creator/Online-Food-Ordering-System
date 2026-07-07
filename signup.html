@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background: url("bgc.png") no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            padding-top: 40px;
+        }
+
+        body::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(255,255,255,0.75);
+            z-index:0;
+        }
+
+        .main {
+            position: relative;
+            z-index: 1;
+            width: 430px;
+            background-color: #ffffff;
+            border: none;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.15);
+            padding:35px;
+        }
+
+        .cname {
+            text-align: center;
+            color: #a62e02;
+            font-size: 36px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        .des1 {
+            text-align: center;
+            color: #605d5c;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 10px;
+            margin-bottom: 35px;
+            font-size: 17px;
+        }
+
+        .acc {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .des2 {
+            color: #605d5c;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-bottom: 35px;
+            font-size: 16px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            padding: 8px;
+            background-color: #fff8f6;
+            font-size: 12px;
+            margin-top: 5px;
+            margin-bottom: 14px;
+            outline: none;
+        }
+
+        input:focus {
+            border: 1px solid #b33900;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 8px;
+            background-color: #aa3500;
+            color: #f7ebe9;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            border: 1px solid #a62e02;
+            background-color: #fff;
+            color: #b33900;
+            transition: 0.3s;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 17px;
+        }
+
+        .login a {
+            text-decoration: none;
+            color: #ad5b4f;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer{
+            margin-top: auto;
+            position:relative;
+            bottom: 0;
+            left: 0;
+            z-index:1;
+            width:100%;
+            margin-top:40px;
+            padding:18px;
+            background:#261815;
+            color:#f5caca;
+            text-align: center;
+        }
+
+        @media(max-width: 500px) {
+            .main {
+                width: 90%;
+            }
+
+            .cname {
+                font-size: 40px;
+            }
+
+            .des1 {
+                font-size: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 class="cname">BiteDash</h1>
+
+        <p class="des1">High-Definition Hospitality</p>
+
+        <form action="" method="" onsubmit="validation()">
+            <h3 class="acc">Create Your Account</h3>
+            <p class="des2">Join BiteDash and enjoy seamless hospitality.</p>
+
+            <label for="fname">
+                Full Name
+                <input type="text" placeholder="Enter your full name" id="fname" required>
+            </label>
+            <label for="email">
+                Email Address
+                <input type="email" placeholder="📩 name@example.com" id="email" required>
+            </label>
+            <label for="password">
+                Password
+                <input type="password" placeholder="🔒 Enter Password" id="password" required>
+            </label>
+            <label for="cpassword">
+                Confirm Password
+                <input type="password" placeholder="🔒 Enter Confirm Password" id="cpassword" required>
+            </label>
+            <label for="phone_no">
+                Phone Number (Optional)
+                <input type="tel" placeholder="Enter your phone number" id="phone_no">
+            </label>
+            <button type="submit">Sign Up →</button>
+        </form>
+
+        <div class="login">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+    <footer>
+        © 2024 BiteDash. High-Definition Hospitality.
+    </footer>
+
+    <script>
+        function validation() {
+            var password = document.getElementById('password').value
+            var cpassword = document.getElementById('cpassword').value
+
+            var ph_no = document.getElementById('phone_no').value
+            var pattern = /^[0-9]{10}$/
+
+            if(password != cpassword) {
+                alert('Password and Confirm Password must be same.')
+            }
+            else {
+                if(!pattern.test(ph_no)) {
+                    alert('Phone must be in correct format.')
+                }
+        }
+        }
+    </script>
+</body>
+</html>
